@@ -33,7 +33,7 @@ public class AtmMain implements CheckBalance,Deposit,Withdrawal {
         int choice = ui.nextInt();
         InputStream inputByUse;
         int input = choice;
-        
+
         System.out.println("Your balance is " + input);
     }
 }
