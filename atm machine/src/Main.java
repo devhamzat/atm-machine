@@ -1,19 +1,27 @@
+import atmmachine.ATMAction;
+import atmmachine.AtmActionFactory;
+import atmmachine.AtmActionParameter;
+
 import java.util.Scanner;
-import java .util.*;
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
-        //declare and instalize balance,withdraw,deposit
-        int balance=1000000;
-                  int  withdraw,deposit;
-        //create scanner class object to get choice of user
+        System.out.println("Automated Teller Machine");
+        System.out.println("Choose 1 for Withdraw");
+        System.out.println("Choose 2 for Deposit");
+        System.out.println("Choose 3 for Check Balance");
+        System.out.println("Choose 4 for Exit");
+        System.out.print("Choose the operation you want to perform:");
         Scanner ui = new Scanner(System.in);
-
+        int choice = ui.nextInt();
+        for (ATMAction atmAction : AtmActionFactory.getAtmActions()) {
+            if (atmAction.isMyAction(choice)) {
+                AtmActionParameter atmActionParameter = atmAction.preAction();
+                atmAction.action(atmActionParameter);
             }
         }
 
-    }
-
-    private static class InsufficientBalanceException extends Throwable {
 
     }
 }
