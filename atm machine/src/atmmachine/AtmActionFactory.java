@@ -11,7 +11,7 @@ public abstract class AtmActionFactory {
     }
 
     public static ATMAction findActionByType(ActionType actionType) {
-        ATMAction action;
+        ATMAction action = null;
         for (ATMAction atmAction : getAtmActions()) {
             if (atmAction.isMyAction(actionType)) {
                 action = atmAction;
