@@ -10,7 +10,7 @@ public class Main {
         ActionType actionType = getChoice();
         while (actionType != ActionType.EXIT) {
             if (actionType == null) {
-                System.out.println("incorrect prompt selection");
+                System.err.println("incorrect prompt selection");
                 break;
             } else {
                 ATMAction atmAction=AtmActionFactory.findActionByType(actionType);
@@ -32,6 +32,7 @@ public class Main {
         System.out.println("Choose D for Deposit");
         System.out.println("Choose W for Withdrawal");
         System.out.println("Choose B for Check Balance");
+        System.out.println("Choose F to Buy Airtime");
         System.out.println("Choose X for Exit");
         System.out.print("Choose the operation you want to perform:");
         Scanner ui = new Scanner(System.in);

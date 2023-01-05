@@ -19,4 +19,14 @@ public class AtmActionParameter {
     public void setWitdrawal(int witdrawal) {
         this.witdrawal = witdrawal;
     }
+
+    private int buyairtime;
+
+    public int getBuyairtime() {
+        return buyairtime;
+    }
+
+    public void setBuyairtime(int buyairtime) {
+        this.buyairtime = buyairtime;
+    }
 }

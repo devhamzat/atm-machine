@@ -6,7 +6,8 @@ public abstract class AtmActionFactory {
         return new ATMAction[]{
                 new DepositAction(),
                 new WithdrawAction(),
-                new CheckBalanceAction()
+                new CheckBalanceAction(),
+                new BuyAirtimeAction()
         };
     }
 
