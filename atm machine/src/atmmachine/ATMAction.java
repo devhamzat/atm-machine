@@ -1,7 +1,7 @@
 package atmmachine;
 
 public interface ATMAction {
-    boolean isMyAction(int userInput);
+   boolean isMyAction(int userInput);
 
     AtmActionParameter preAction();
 
