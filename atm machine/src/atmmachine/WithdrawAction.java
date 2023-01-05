@@ -13,21 +13,22 @@ public class WithdrawAction implements ATMAction{
         Scanner input = new Scanner(System.in);
         System.out.println("Enter amount to be withdrawn");
         int withdrawalAmount = input.nextInt();
-        if (withdrawalAmount < BankAccount.BANK_ACCOUNT_BALANCE  ){
-            withdrawalAmount = BankAccount.BANK_ACCOUNT_BALANCE - withdrawalAmount;
-            System.out.println("Take your cash");
-        }else{
-            System.out.println("insufficient balance");
-        }
+        AtmActionParameter actionParameter= new AtmActionParameter();
+        actionParameter.setWitdrawal(withdrawalAmount);
 
-        return null;
+        return actionParameter;
     }
 
     @Override
     public void action(AtmActionParameter atmActionParameter) {
-        int withdrawal  = atmActionParameter.getDepositAmount();
-        BankAccount.BANK_ACCOUNT_BALANCE = BankAccount.BANK_ACCOUNT_BALANCE - withdrawal;
-        System.out.println("Balance is " + BankAccount.BANK_ACCOUNT_BALANCE);
+        int withdrawalAmount  = atmActionParameter.getWitdrawal();
+        if (withdrawalAmount<=BankAccount.BANK_ACCOUNT_BALANCE  ){
+            BankAccount.BANK_ACCOUNT_BALANCE= BankAccount.BANK_ACCOUNT_BALANCE - withdrawalAmount;
+            System.out.println("Take your cash");
+
+        }else {
+            System.out.println("insufficient balance");
+        }
 
 
     }

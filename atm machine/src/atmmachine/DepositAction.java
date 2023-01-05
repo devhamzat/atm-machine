@@ -12,7 +12,7 @@ public class DepositAction implements ATMAction {
     public AtmActionParameter preAction() {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter amount to be deposited");
-        int depositAmount = input.nextInt();
+        int depositAmount = input. nextInt();
         AtmActionParameter atmActionParameter = new AtmActionParameter();
         atmActionParameter.setDepositAmount(depositAmount);
         return atmActionParameter;
