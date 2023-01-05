@@ -1,41 +1,32 @@
 import atmmachine.ATMAction;
+import atmmachine.ActionType;
 import atmmachine.AtmActionFactory;
 import atmmachine.AtmActionParameter;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String choice = getChoice();
-        List<String> permittedCharacters = new ArrayList<>();
-        permittedCharacters.add("D");
-        permittedCharacters.add("W");
-        permittedCharacters.add("B");
-        permittedCharacters.add("X");
-
-        while (!choice.equalsIgnoreCase("X")) {
-            if (permittedCharacters.contains(choice)) {
-                for (ATMAction atmAction : AtmActionFactory.getAtmActions()) {
-                    if (atmAction.isMyAction(choice)) {
-                        AtmActionParameter atmActionParameter = atmAction.preAction();
-                        atmAction.action(atmActionParameter);
-                    }
-                }
-
-            } else {
+        ActionType actionType = getChoice();
+        while (actionType != ActionType.EXIT) {
+            if (actionType == null) {
                 System.out.println("incorrect prompt selection");
                 break;
+            } else {
+                ATMAction atmAction=AtmActionFactory.findActionByType(actionType);
+                AtmActionParameter atmActionParameter = atmAction.preAction();
+                atmAction.action(atmActionParameter);
+
             }
-            choice = getChoice();
+
+            actionType = getChoice();
         }
 
 
     }
 
 
-    private static String getChoice() {
+    private static ActionType getChoice() {
         System.out.println("********************");
         System.out.println("Automated Teller Machine");
         System.out.println("Choose D for Deposit");
@@ -45,6 +36,7 @@ public class Main {
         System.out.print("Choose the operation you want to perform:");
         Scanner ui = new Scanner(System.in);
         String choice = ui.next();
-        return choice;
+        ActionType actionType = ActionType.getActionType(choice);
+        return actionType;
     }
 }

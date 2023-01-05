@@ -3,21 +3,19 @@ package atmmachine;
 import java.util.Scanner;
 
 public class DepositAction implements ATMAction {
-    @Override
-    public boolean isMyAction(int userInput) {
-        return userInput == 1;
-    }
+
 
     @Override
-    public boolean isMyAction(String userInput) {
-        return userInput.equalsIgnoreCase("D");
+    public boolean isMyAction(ActionType actionType) {
+        return ActionType.DEPOSIT==actionType;
     }
+
 
     @Override
     public AtmActionParameter preAction() {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter amount to be deposited");
-        int depositAmount = input. nextInt();
+        int depositAmount = input.nextInt();
         AtmActionParameter atmActionParameter = new AtmActionParameter();
         atmActionParameter.setDepositAmount(depositAmount);
         return atmActionParameter;

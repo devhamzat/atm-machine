@@ -3,15 +3,12 @@ package atmmachine;
 import java.util.Scanner;
 
 public class WithdrawAction implements ATMAction{
-    @Override
-    public boolean isMyAction(int userInput  ) {
-        return userInput == 2;
-    }
 
     @Override
-    public boolean isMyAction(String userInput) {
-        return userInput.equalsIgnoreCase("W");
+    public boolean isMyAction(ActionType actionType) {
+        return ActionType.WITHDRAWAL==actionType;
     }
+
 
     @Override
     public AtmActionParameter preAction() {

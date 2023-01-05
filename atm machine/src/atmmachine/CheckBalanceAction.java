@@ -1,14 +1,10 @@
 package atmmachine;
 
 public class CheckBalanceAction implements ATMAction{
-    @Override
-    public boolean isMyAction(int userInput) {
-        return userInput== 3;
-    }
 
     @Override
-    public boolean isMyAction(String userInput) {
-        return userInput.equalsIgnoreCase("B");
+    public boolean isMyAction(ActionType actionType) {
+        return ActionType.CHECK_BALANCE ==actionType;
     }
 
     @Override
