@@ -1,9 +1,5 @@
 package atmmachine;
 
-import atmmachine.ATMAction;
-import atmmachine.ActionType;
-import atmmachine.AtmActionParameter;
-
 import java.util.Scanner;
 
 public class BuyAirtimeAction implements ATMAction {
@@ -28,11 +24,11 @@ public class BuyAirtimeAction implements ATMAction {
     @Override
     public void action(AtmActionParameter atmActionParameter) {
         int buyairtime = atmActionParameter.getBuyairtime();
-        int  phone_number[]= new int[11];
+        int[] phone_number = new int[11];
         Scanner phoneNumber = new Scanner(System.in);
-        int phoneNumber=phone_number;
+        int phonenumber=phone_number;
         System.out.println("Enter Phone number:");
-        if (){
+        if (phonenumber=phone_number.length){
             if (buyairtime <= BankAccount.BANK_ACCOUNT_BALANCE) {
                 BankAccount.BANK_ACCOUNT_BALANCE = BankAccount.BANK_ACCOUNT_BALANCE - buyairtime;
                 System.out.println("Airtime purchase successful");
