@@ -9,6 +9,11 @@ public class DepositAction implements ATMAction {
     }
 
     @Override
+    public boolean isMyAction(String userInput) {
+        return userInput.equalsIgnoreCase("D");
+    }
+
+    @Override
     public AtmActionParameter preAction() {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter amount to be deposited");

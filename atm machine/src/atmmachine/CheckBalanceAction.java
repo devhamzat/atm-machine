@@ -7,6 +7,11 @@ public class CheckBalanceAction implements ATMAction{
     }
 
     @Override
+    public boolean isMyAction(String userInput) {
+        return userInput.equalsIgnoreCase("B");
+    }
+
+    @Override
     public AtmActionParameter preAction() {
         return null;
     }
