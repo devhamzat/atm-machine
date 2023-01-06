@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class BuyAirtimeAction implements ATMAction {
     @Override
     public boolean isMyAction(ActionType actionType) {
-        return ActionType.BuyAirtime == actionType;
+        return ActionType.BUY_AIRTIME == actionType;
     }
 
     @Override
@@ -15,28 +15,27 @@ public class BuyAirtimeAction implements ATMAction {
         int buyAirtime = input.nextInt();
         AtmActionParameter actionParameter = new AtmActionParameter();
         actionParameter.setBuyairtime(buyAirtime);
-
-
+        Scanner inputPhoneNumber = new Scanner(System.in);
+        System.out.println("Enter phone number for the airtime:");
+        String phoneNumber = inputPhoneNumber.next();
+        int intPhoneNumber = Integer.parseInt(phoneNumber);
         return actionParameter;
+
 
     }
 
     @Override
     public void action(AtmActionParameter atmActionParameter) {
-        int buyairtime = atmActionParameter.getBuyairtime();
-        int[] phone_number = new int[11];
-        Scanner phoneNumber = new Scanner(System.in);
-        int phonenumber=phone_number;
-        System.out.println("Enter Phone number:");
-        if (phonenumber=phone_number.length){
-            if (buyairtime <= BankAccount.BANK_ACCOUNT_BALANCE) {
-                BankAccount.BANK_ACCOUNT_BALANCE = BankAccount.BANK_ACCOUNT_BALANCE - buyairtime;
+        int buyAirtime = atmActionParameter.getBuyairtime();
+
+
+            if (buyAirtime <= BankAccount.BANK_ACCOUNT_BALANCE) {
+                BankAccount.BANK_ACCOUNT_BALANCE = BankAccount.BANK_ACCOUNT_BALANCE - buyAirtime;
                 System.out.println("Airtime purchase successful");
 
             } else {
-                System.out.println("insufficient balance");
+                System.err.println("insufficient balance");
             }
         }
 
     }
-}
