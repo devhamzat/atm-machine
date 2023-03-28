@@ -39,12 +39,4 @@ public class AtmActionParameter {
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
-    String creditedAccountNumber;
-    public void setCreditedAccountNumber(String creditedAccountNumber) {
-        this.accountNumber= creditedAccountNumber;
-    }
-    public String getCreditedAccountNumber(){
-
-        return creditedAccountNumber;
-    }
 }

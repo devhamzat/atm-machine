@@ -3,7 +3,7 @@ package atmmachine;
 import java.util.HashMap;
 import java.util.Map;
 
-public interface  ATMAction {
+public interface ATMAction {
    boolean isMyAction(ActionType actionType);
 
     AtmActionParameter preAction();

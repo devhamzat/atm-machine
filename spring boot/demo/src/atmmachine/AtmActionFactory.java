@@ -7,8 +7,7 @@ public abstract class AtmActionFactory {
                 new DepositAction(),
                 new WithdrawAction(),
                 new CheckBalanceAction(),
-                new BuyAirtimeAction(),
-                new TransferAction()
+                new BuyAirtimeAction()
         };
     }
 
