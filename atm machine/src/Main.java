@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 
 public class Main {
-    public  void main(String[] args) {
+    public static void main(String[] args) {
         Map<Integer,Integer> accountNumber= new HashMap<>();
         Scanner accountNumberInput= new Scanner(System.in);
        // System.out.println("Input your account number :");
