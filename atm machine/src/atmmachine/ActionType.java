@@ -4,7 +4,9 @@ public enum ActionType {
     WITHDRAWAL("W"),
     DEPOSIT("D"),
     CHECK_BALANCE("B"),
-    EXIT("X");
+    BUY_AIRTIME("F"),
+    EXIT("X"),
+    TRANSFER("T");
     private String type;
 
     ActionType(String c) {
